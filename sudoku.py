@@ -1,6 +1,9 @@
 def print_menu():
   print("Poo")
 
+def change(x,y,n):
+  pass
+
 def grab(sudoku):
   rows = []
   columns = []
