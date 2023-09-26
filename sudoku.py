@@ -1,5 +1,5 @@
 def print_menu():
-  print("menu here")
+  print("Poo")
   
 print("sudoku is here")
 print_menu()
