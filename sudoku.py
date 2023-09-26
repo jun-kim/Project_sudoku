@@ -2,7 +2,7 @@ def print_menu():
   print("Poo")
 
 def grab(sudoku):
-  rows = [p for p in sudoku.split("\n")]
+  rows = []
   columns = []
   boxes = []
   return rows
