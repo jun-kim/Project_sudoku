@@ -1,3 +1,5 @@
+#print_menu is supposed to print menu for the user. This is totally wrong use of the function.
+
 def print_menu(sudoku): # turns 
   final = [[]]
   counter = 0
@@ -23,6 +25,7 @@ def valid(sudoku,x,y,num):
   boxes = []
   pass # define this to see if the sudoku is valid by collecting rows columns and boxes 
 
+#don't copy paste other's code. We are trying to make it from scratch. Not copy paste sudoku code.
 def solve(sudoku, x=0, y=0): # x and y are coordinates; they start as zero, but they will change value as we work through the sudoku
   x,y = findnextcell(sudoku, x, y)
   if x == "correct":
@@ -57,7 +60,7 @@ def convert():
 sudoku = input("SUDOKU\nInput conditions:\n1) Start from the top left cell, moving right\n2) Use a space to represent the end of a row\n3) Indicate unknown values with a 0\nExample: 120456709 987600321...\nSudoku: ")
 # use this sudoku format ^
 
-#instruction:
+#instruction: Follow the instruction. You haven't done anything I put here. You just copy pasted other's code. Follow the instruction.
 #1 . print the menu for sudoku user interface
 #2 . print out a simple sudoku array. EX) 323 456 789
 #                                         987 654 321 
