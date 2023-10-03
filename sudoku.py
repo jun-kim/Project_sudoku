@@ -70,6 +70,7 @@ sudoku = input("SUDOKU\nInput conditions:\n1) Start from the top left cell, movi
 "2) display the array. Ex) 2 then display 123 | 456 | 78x"
 "3) enter a number in the array. Ex) 3 0 0 5. Then display will show 523 | 456 | 78x"
 
+#who's calling print_menu?
 def print_menu(cmd,sudoku):
   if cmd == "1":
     return format(sudoku)
@@ -85,6 +86,9 @@ def display(sudoku):
       counter = 0
     print("{}{}{} | {}{}{} | {}{}{}".format(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8]))
     counter += 1
+#where is user interaction?
+#we need user interaction to update it dynamically
+#this is a dynamic UI app that can update it whenever user inputs.
 
 display(sudoku)
 #instruction:
