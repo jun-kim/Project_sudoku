@@ -7,7 +7,8 @@ def print_menu(sudoku):
 def read(sudoku): # turns sudoku readable (into rows)
   final = []
   counter = 9
-  for num in sudoku.replace(" ",""):
+  p = sudoku.replace(" ","")
+  for num in p:
     if counter == 9:
       final.append([])
       counter = 0
@@ -18,9 +19,8 @@ def read(sudoku): # turns sudoku readable (into rows)
 
 # 3
 def change(x,y,n,sudoku):
-  newsudoku = read(sudoku)
-  newsudoku[y][x] = n
-  return newsudoku
+  sudoku[y][x] = n
+  return sudoku
 
 def findnextcell(sudoku,x,y):
   pass # define this to find the next cell we need to solve in the sudoku
@@ -44,24 +44,8 @@ def solve(sudoku, x=0, y=0): # x and y are coordinates; they start as zero, but 
         sudoku[x][y] = 0 # undo the cell to try again with a new value
   return False
 
-# 2
-def format(sudoku): # sudoku variable is the solved sudoku which is a list of lists (rows)
-  final = ""
-  counter = 0
-  for row in sudoku:
-    for cell in row:
-      if counter == 2:
-        final += str(cell)+" " 
-        counter = 0
-      else:
-        final += str(cell)
-      counter += 1
-    final = final[:-1]
-    final += "\n"
-  return final
-
-def convert():
-  pass # use this function to turn sudoku input into something readable by solve function
+def convert(sudoku):
+  return [row for row in [cell for cell in sudoku]]
 
 # 1
 sudoku = input("SUDOKU\nInput conditions:\n1) Start from the top left cell, moving right\n2) Use a space to represent the end of a row\n3) Indicate unknown values with a 0\nExample: 120456709 987600321...\nSudoku: ")
@@ -72,13 +56,12 @@ sudoku = input("SUDOKU\nInput conditions:\n1) Start from the top left cell, movi
 
 def print_menu(cmd,sudoku):
   if cmd == "1":
-    return format(sudoku)
+    return display(sudoku)
   elif cmd == "2":
     return change(int(input("x: ")),int(input("y: ")),int(input("n: ")),sudoku)
 
-def display(sudoku):
+def display(sudoku): # sudoku is a list of lists
   counter = 3
-  sudoku = read(sudoku)
   for row in sudoku:
     if counter == 3:
       print("----------------")
@@ -86,10 +69,14 @@ def display(sudoku):
     print("{}{}{} | {}{}{} | {}{}{}".format(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8]))
     counter += 1
 
-display(sudoku)
+print_menu("1",read(sudoku))
 #instruction:
 #1 . print the menu for sudoku user interface
 #2 . print out a simple sudoku array. EX) 323 456 789
 #                                         987 654 321 
 #3 . change the array value using the menu. So use the menu to update a value. input 0 0 3 makes 1 -> 3
 #4 . print menu prints updated sudoku array (regardless of correct or not)
+
+display(change(int(input("x: ")),int(input("y: ")),int(input("n: ")),read(sudoku)))
+
+# format funct is to turn a list of lists into display, display funct turns string into display
